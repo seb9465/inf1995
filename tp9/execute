@@ -1,0 +1,15 @@
+#!/bin/bash
+cd transfert/
+./execTransfert
+cd ..
+make clean
+cd lib/
+make clean
+make
+make clean
+cd ..
+make install
+make clean
+echo " "
+echo " "
+echo "EXECUTE IS DONE!"

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+make clean
+cd lib/
+make clean
+make
+make clean
+echo " "
+echo " "
+echo "COMPILING LIBBBBB DONE"
+echo " "
+echo " "
+cd ../exec/
+make install
+make clean
+echo " "
+echo " "
+echo "EXECUTE IS DONE!"

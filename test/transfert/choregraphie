@@ -1,0 +1,62 @@
+dbt;
+dbc 3;
+    dal 1;
+    att 10;
+    det 1;
+    att 10;
+fbc;
+sgo 62;
+att 10;
+
+sgo 64;
+att 10;
+
+sgo 65;
+att 10;
+
+sgo 67;
+att 10;
+
+sgo 69;
+att 10; 
+
+sgo 65;
+att 10;
+
+sgo 69;
+att 20;  //1ere
+
+sgo 68;
+att 10;
+
+sgo 64;
+att 10;
+
+sgo 68;
+att 20;
+
+sgo 67;
+att 10;
+
+sgo 63;
+att 10;
+
+sgo 67;
+att 20;
+
+sar;
+trd;
+trd;
+trd;
+trd;
+
+dbc 2;
+	mav 255;
+	att 80;
+	mar;
+	mre 255;
+	att 80;
+	mar;
+fbc;
+fin;
+

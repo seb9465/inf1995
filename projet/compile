@@ -1,0 +1,17 @@
+#!/bin/bash
+cd lib/
+echo " "
+echo "COMPILING THE LIBBBB"
+echo " "
+./compileLib
+cd ../exec
+echo " "
+echo "COMPILING THE MAIN"
+echo " "
+make 
+make clean
+echo " "
+echo " "
+echo "COMPILING IS DONE!"
+echo " "
+echo " "

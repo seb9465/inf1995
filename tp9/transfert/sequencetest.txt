@@ -1,0 +1,40 @@
+dal 1;	// pour tester qu'elle n'allume pas
+
+dbt; //debut
+att 40;
+dal 1;
+att 40;
+trd;
+att 40;
+mar;
+att 80;
+	dbc 2;
+		mav 255;
+		att 40;
+		mar;
+	fbc;
+
+det 1;
+//melodie
+att 40;
+sgo 80;
+att 40;
+sgo 68;
+att 40;
+sar;
+dal 1;
+	dbc 2;
+		mre 255;
+		att 40;
+		mar;
+	fbc;
+det 1;
+
+dal 1;
+trg;	
+att 40;
+det 1;
+mar;
+
+fin;
+

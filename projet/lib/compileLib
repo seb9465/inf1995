@@ -1,0 +1,7 @@
+#!/bin/bash
+rm libprojet6771.a
+make
+make clean
+echo " "
+echo "LIB IS COMPILED"
+echo " "

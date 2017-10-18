@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#python3 progmem.py -o choregraphie.bin choregraphie
+progmem -v -o choregraphie.bin choregraphie
+make install
+make clean
+serieViaUSB -e -f choregraphie.bin
+
+echo "EXECUTE TRANSFERT IS DONE!"

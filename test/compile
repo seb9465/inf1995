@@ -1,0 +1,13 @@
+#!/bin/bash
+make clean
+rm librairie6771.a
+cd lib/
+make clean
+make
+make clean
+cd ..
+make
+make clean
+echo " "
+echo " "
+echo "COMPILING IS DONE!"
