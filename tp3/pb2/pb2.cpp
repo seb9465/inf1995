@@ -52,7 +52,7 @@ void afficherAmbre();                   //Prototype pour la fonction afficherAmb
 
 int main() {
     DDRA = 0xff;                        //Port A est en mode sortie.
-    DDRD = 0x00;                        //Port D est en mode sortie.
+    DDRD = 0x00;                        //Port D est en mode entrée.
     
     State etatPresent = INIT;
     
