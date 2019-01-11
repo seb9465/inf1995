@@ -45,6 +45,8 @@
 
 enum State {INIT,E1, E2, E3, E4, E5};
 
+bool etatBoutton();                         //Prototype pour la fonction etatBoutton.
+
 int main() {
     DDRA = 0xff;                            //Port A est en mode sortie.
     DDRD = 0x00;                            //Port D est en mode entrée.
@@ -59,12 +61,14 @@ int main() {
     for(;;) {                               //Boucle infinie.
         btnPresse = false;                  //Réinitialisation de la variable btnPressé.
                                     
-        if(PIND & 0x04) {                   //Début portion de code pour l'anti-rebond.
-            _delay_ms(10);                  //Délai de 10ms .
-            if(PIND & 0x04)                 //Vrai si le boutton est pressé.
-                btnPresse = true;   
-        } else 
-            dejaUtilise = false;            //Fin portion de code pour l'anti-rebond.
+        // if(PIND & 0x04) {                   //Début portion de code pour l'anti-rebond.
+        //     _delay_ms(10);                  //Délai de 10ms .
+        //     if(PIND & 0x04)                 //Vrai si le boutton est pressé.
+        //         btnPresse = true;   
+        // } else 
+        //     dejaUtilise = false;            //Fin portion de code pour l'anti-rebond.
+
+        etatBoutton() ? btnPresse = true : dejaUtilise = false;
         
         if(!dejaUtilise) {                  //Empeche d'entrer dans le SWITCH s'il n'est pas relaché.
             switch(etatPresent) {
@@ -104,3 +108,22 @@ int main() {
     }
 }
 
+/*
+ * Fonction etatBoutton
+ * 
+ * INPUT :
+ *      - Aucun input.
+ * OUTPUT :
+ *      - etatBtn (bool) : Renvoie l'etat du boutton.  Si le boutton est pressé,
+ *        etatBtn sera a TRUE.  Si le boutton n'est pas pressé, etatBtn sera à
+ *        FALSE.
+ */
+bool etatBoutton(){
+    bool etatBtn = false;
+    if(PIND & 0x04) {               //Début portion de code pour l'anti-rebond.
+        _delay_ms(10);              //Délai de 10ms.
+        if(PIND & 0x04)         
+            etatBtn = true;   
+    }                               //Fin portion de code pour l'anti-rebond.   
+    return etatBtn;
+}
