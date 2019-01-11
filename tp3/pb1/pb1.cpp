@@ -60,13 +60,6 @@ int main() {
     
     for(;;) {                               //Boucle infinie.
         btnPresse = false;                  //Réinitialisation de la variable btnPressé.
-                                    
-        // if(PIND & 0x04) {                   //Début portion de code pour l'anti-rebond.
-        //     _delay_ms(10);                  //Délai de 10ms .
-        //     if(PIND & 0x04)                 //Vrai si le boutton est pressé.
-        //         btnPresse = true;   
-        // } else 
-        //     dejaUtilise = false;            //Fin portion de code pour l'anti-rebond.
 
         etatBoutton() ? btnPresse = true : dejaUtilise = false;
         
