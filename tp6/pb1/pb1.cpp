@@ -17,25 +17,25 @@ int main() {
     uint16_t adresse = 0x00;
     
 #pragma region Ecriture et lecture d'un tableau de caractere
-    uint8_t tableauEcriture[] = {"E*C*O*L*E* *P*O*L*Y*T*E*C*H*N*I*Q*U*E*"};		//Tableau contenent ce qu'il faut ecrire dans la mémoire externe.
+    uint8_t tableauEcriture[] = {"E*C*O*L*E* *P*O*L*Y*T*E*C*H*N*I*Q*U*E*"};		//Tableau contenent ce qu'il faut ecrire dans la mï¿½moire externe.
     uint8_t sizeTableau = sizeof(tableauEcriture) / sizeof(uint8_t);			//Taille du tableau d'ecriture.
     uint8_t tableauLecture[sizeTableau];										//Il nous faut preciser la taille de ce tableau pour qu'il aie
-																				//la même taille que le tableau d'écriture.
+																				//la mï¿½me taille que le tableau d'ï¿½criture.
 
-	//On passe en parametre l'adresse de départ, le tableau d'ecriture
+	//On passe en parametre l'adresse de dï¿½part, le tableau d'ecriture
 	//ainsi que la taille de ce tableau.
-    unObjet.ecriture(adresse, tableauEcriture, sizeTableau);					//Fonction permettant l'ecriture dans la mémoire externe.
+    unObjet.ecriture(adresse, tableauEcriture, sizeTableau);					//Fonction permettant l'ecriture dans la mï¿½moire externe.
     
 	//On passe en parametre l'adresse de depart, le tableau dans lequel
 	//on veut mettre les donnees ainsi que sa taille.
     unObjet.lecture(adresse, tableauLecture, sizeTableau);						//Fonction permettant la lecture de ce qu'on a ecrit dans la memoire externe.
 
-    //On parcourt nos deux tableaux afin de les comparer.  Dès que
+    //On parcourt nos deux tableaux afin de les comparer.  Dï¿½s que
 	//deux donnes ne sont pas les memes, on quitte la boucle immediatement.
     bool donneePareil = true;
-    for(uint8_t i = 0; i < sizeTableau && donneePareil; i++) {					//Les deux tableaux sont de même tailles.  On les parcours pour les comparer.
+    for(uint8_t i = 0; i < sizeTableau && donneePareil; i++) {					//Les deux tableaux sont de mï¿½me tailles.  On les parcours pour les comparer.
 		if (tableauEcriture[i] != tableauLecture[i])
-			donneePareil = false;;												//Si les donnees sont differentes, on change pour false.  Utile plus bas.
+			donneePareil = false;											    //Si les donnees sont differentes, on change pour false.  Utile plus bas.
     }
 
     //Sur la DEL libre, le fil orange a droite.  Le fil jaune a gauche.

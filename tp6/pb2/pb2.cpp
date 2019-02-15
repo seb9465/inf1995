@@ -81,7 +81,7 @@ void transmission() {
 }
 
 int main() {
-	Memoire24CXXX unObjet;
+	// Memoire24CXXX unObjet;
 
 	initialisationUART();
 	transmission();
