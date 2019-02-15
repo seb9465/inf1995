@@ -239,8 +239,8 @@ void initialisation(){
  */
 void demarrerCompteur() {
     compteur = 0x00;
-    TIMSK1 |= _BV(OCIE1A);
-    TCNT1 = 0x00;
+    TIMSK1 |= _BV(OCIE1A);      // OCIE1A permet d'activer le timer.
+    TCNT1 = 0x00;               // Remise à zéro du compteur du timer.
 }
 
 /*
