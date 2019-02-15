@@ -80,7 +80,7 @@ ISR(INT0_vect) {
         }
 }
 
-void initialisation(void){
+void initialisation(void) {
     cli();
     DDRA = 0xff;                    //Port A est en mode sortie.
     DDRD = 0x00;                    //Port D est en mode sortie.
@@ -89,20 +89,10 @@ void initialisation(void){
     sei();
 }
 
-
-
-
 int main() {
     initialisation();
     
-   
-    
-  
-    
-    
     for(;;) {
-       
-        
          switch(etat) {
             case INIT :
                  PORTA = ROUGE;
@@ -135,7 +125,7 @@ int main() {
  * OUTPUT :
  *      - Aucun output.
  */
-void afficherAmbre(){
+void afficherAmbre() {
     PORTA = ROUGE;
     _delay_ms(1);
     PORTA = VERTE;
@@ -152,7 +142,7 @@ void afficherAmbre(){
  *        etatBtn sera a TRUE.  Si le boutton n'est pas pressé, etatBtn sera à
  *        FALSE.
  */
-bool etatBoutton(){
+bool etatBoutton() {
     bool etatBtn = false;
     if(PIND & 0x04) {           //Début portion de code pour l'anti-rebond.
         _delay_ms(10);          //Délai de 10ms .
@@ -161,5 +151,3 @@ bool etatBoutton(){
     }                           //Fin portion de code pour l'anti-rebond.   
     return etatBtn;
 }
-
-

@@ -15,11 +15,11 @@ void initialisation(void){
 
 void ajustementPWM(uint8_t signalPWMB, uint8_t signalPWMA) {
     TCCR1A |= 0xA1;     // Clear on compare match (low level)
-    TCCR1B |= 0x02;    // mode CTC du timer 1 avec horloge divisee par 8
-    TCCR1C |= 0;       // 
-    //TCNT1 = 0;      //
-    OCR1A = signalPWMA;     // 
-    OCR1B = signalPWMB;       // variable qui changera
+    TCCR1B |= 0x02;     // mode CTC du timer 1 avec horloge divisee par 8
+    TCCR1C |= 0;
+    //TCNT1 = 0;
+    OCR1A = signalPWMA;
+    OCR1B = signalPWMB;
 }
 
 
