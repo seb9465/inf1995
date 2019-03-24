@@ -7,54 +7,54 @@ Moteur::Moteur() {
 }
 
 void Moteur::avancer(uint8_t pourcentage) {
-    	cli();
-    	TCCR1A |= (1<<COM1A1) | (1<<COM1B1) | (1<<WGM10);       // Fast PWM 8 bits
-    	TCCR1B |= (1<<WGM12) | (1<<CS12) | (1<<CS10);         	// Clear OCnA/OCnB on Compare Match, set OCnA/OCnB at BOTTOM 
-								//(non-inverting mode)
-    	TCCR1C |= 0;						// Prescaler CLK/1024
-    	TCNT1 = 0;   						// Compteur a 0
+    cli();
+    TCCR1A |= (1<<COM1A1) | (1<<COM1B1) | (1<<WGM10);       // Fast PWM 8 bits
+    TCCR1B |= (1<<WGM12) | (1<<CS12) | (1<<CS10);         	// Clear OCnA/OCnB on Compare Match, set OCnA/OCnB at BOTTOM 
+                                                            //(non-inverting mode)
+    TCCR1C |= 0;						// Prescaler CLK/1024
+    TCNT1 = 0;   						// Compteur a 0
 	//Calcul du pourcentage
 	uint8_t top = (uint8_t)(255*(pourcentage/100));		// Le 255 vient du PWM 8 bits
-	if(pourcentage > 100)
+	if(pourcentage > 100) {
 		top = 255;
     	OCR1A = top;
     	OCR1B = top;
-	
+    }
 	//On met la direction vers l'avant
 	changerDirection(AVANCER, ROUE_DROITE);
 	changerDirection(AVANCER, ROUE_GAUCHE);
-    	sei();
+    sei();
 }
 
 void Moteur::reculer(uint8_t pourcentage) {
 	cli();
-    	TCCR1A |= (1<<COM1A1) | (1<<COM1B1) | (1<<WGM10);       // Fast PWM 8 bits
-    	TCCR1B |= (1<<WGM12) | (1<<CS12) | (1<<CS10);         	// Clear OCnA/OCnB on Compare Match, set OCnA/OCnB at BOTTOM 
-								//(non-inverting mode)
-   	TCCR1C |= 0;						// Prescaler CLK/1024
-    	TCNT1 = 0;              				// Compteur a 0
+    TCCR1A |= (1<<COM1A1) | (1<<COM1B1) | (1<<WGM10);       // Fast PWM 8 bits
+    TCCR1B |= (1<<WGM12) | (1<<CS12) | (1<<CS10);         	// Clear OCnA/OCnB on Compare Match, set OCnA/OCnB at BOTTOM 
+								                            //(non-inverting mode)
+   	TCCR1C |= 0;						                    // Prescaler CLK/1024
+    TCNT1 = 0;              				                // Compteur a 0
 	//Calcul du pourcentage
-	uint8_t top = (uint8_t)(255*(pourcentage/100));		// Le 255 vient du PWM 8 bits
-	if(pourcentage > 100)
+	uint8_t top = (uint8_t)(255*(pourcentage/100));		    // Le 255 vient du PWM 8 bits
+	if(pourcentage > 100) {
 		top = 255;
     	OCR1A = top;
     	OCR1B = top;
-	
+    }
 	//On met la direction vers l'arriere
 	changerDirection(RECULER, ROUE_DROITE);
 	changerDirection(RECULER, ROUE_GAUCHE);
-    	sei();
+    sei();
 }
 
 void Moteur::ajustementPWM(uint8_t signalPWMB, uint8_t signalPWMA) {
-    	cli();
-    	TCCR1A |= 0xA1;         // Clear on compare match (low level)
-    	TCCR1B |= 0x02;         // mode CTC du timer 1 avec horloge divisee par 8
-    	TCCR1C |= 0;
-    	TCNT1 = 0;              //Compteur a 0
-    	OCR1A = signalPWMA;
-    	OCR1B = signalPWMB;
-    	sei();
+    cli();
+    TCCR1A |= 0xA1;         // Clear on compare match (low level)
+    TCCR1B |= 0x02;         // mode CTC du timer 1 avec horloge divisee par 8
+    TCCR1C |= 0;
+    TCNT1 = 0;              //Compteur a 0
+    OCR1A = signalPWMA;
+    OCR1B = signalPWMB;
+    sei();
 }
 
 void Moteur::changerDirection(uint8_t avancerOuReculer, uint8_t roueDroiteOuGauche) {

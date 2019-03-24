@@ -14,7 +14,7 @@ public:
 	
 private:
     	uint8_t directionRoueDroite;
-	uint8_t directionRoueGauche;
+	    uint8_t directionRoueGauche;
 };
 
 #endif
